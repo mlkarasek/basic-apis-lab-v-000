@@ -15,7 +15,7 @@ class RepositoriesController < ApplicationController
           @repos = body_info["items"]
 
       else
-          @erros = @req.status
+          @errors = @req.status
       end
           render 'search'
   end
