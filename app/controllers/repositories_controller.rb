@@ -10,13 +10,8 @@ class RepositoriesController < ApplicationController
       req.params['client_secret'] = "4f68a1507b2635aec7df4f09db56c18cdf9d7096"
       req.params['q'] = params['query']
       end
-      body_info = JSON.parse(@req.body)
-      if @req.success?
-          @repos = body_info["items"]
-
-      else
-          @errors = @req.status
-      end
-          render 'search'
-  end
-end
+      body = JSON.parse(@resp.body)
+      @repos = body['items']
+      render 'search'
+    end
+end	
